@@ -16,6 +16,11 @@
   font-size: 30px;
 }
 
+.r{
+  transform:scaleX(-1);
+  display: inline-block;
+  color: rgb(252, 0, 0);}
+
 .menu a:hover {
   color: #757575;
   border-radius: 5px;
@@ -203,9 +208,73 @@ color: #0000007a;
 margin-bottom: 5px;
 }
 
-.sold_out{
 
+
+/* SOLD OUT */
+.product_container {
+  position: relative;
+  border-radius: 5px;
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 4;
+  gap: 0;
+  border: 1px solid black;
 }
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.172); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  visibility: visible; 
+  border-radius: 5px;
+}
+
+.overlay-text.sold_out {
+  background-color: rgba(0, 0, 0, 0.7); 
+  border-radius: 5px;
+}
+/* SOLD OUT */
+
+/* Discount */
+
+.old-price::before {
+  content: "Før ";
+}
+.old-price {
+  text-decoration: line-through;
+  color: rgb(81, 81, 81); 
+}
+
+.discount-price {
+  font-weight: bold;
+}
+
+.image-container {
+  position: relative;
+}
+
+.discount-badge {
+  position: absolute;
+  top: 15px;
+  left: 190px;
+  background-color: rgb(255, 0, 0);
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+/* Discount */
 
 /* Productlist*/
 
@@ -245,6 +314,7 @@ margin-bottom: 5px;
   margin-bottom: 5px;
   margin-top: 50px;
   justify-items: center;
+  row-gap: 10px;
 }
 
 .buy-button {
@@ -292,5 +362,7 @@ margin-bottom: 5px;
   margin-top: -30px;
 }
 
-
 /* Productsite */
+
+
+
