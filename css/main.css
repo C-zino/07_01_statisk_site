@@ -260,13 +260,16 @@ margin-bottom: 5px;
 
 .image-container {
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .discount-badge {
   position: absolute;
-  top: 15px;
-  left: 190px;
-  background-color: rgb(255, 0, 0);
+  top: 5%;
+  left: 5%;
+  background-color: red;
   color: white;
   font-size: 14px;
   font-weight: bold;
