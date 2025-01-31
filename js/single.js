@@ -28,7 +28,7 @@ fetch(`https://kea-alt-del.dk/t7/api/products/${productId}`)
     <p> <strong>Category: </strong></p> 
     <p>${data.category}</p></div>
     <br>
-
+    
     <div class="grid1-1-1-1-invetory">
         <p> <strong>Inventory number:</strong></p> 
         <p>${data.id}</p></div>
