@@ -3,7 +3,8 @@ let productContainer = document.querySelector(".productcontainer");
 fetch(`https://kea-alt-del.dk/t7/api/products/${productId}`)
     .then(response => response.json())
     .then(data => {
-        productContainer.innerHTML = `<section class="product-grid">
+        productContainer.innerHTML = `
+        <section class="product-grid">
     <div>
         <img class="productimg"
           src="https://kea-alt-del.dk/t7/images/webp/640/${productId}.webp"
