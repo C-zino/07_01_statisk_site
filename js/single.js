@@ -1,8 +1,12 @@
-let productId = 1528;
-let productContainer = document.querySelector(".productcontainer");
+const productId = new URLSearchParams(window.location.search).get("id");
+
+const productContainer = document.querySelector(".productcontainer");
+
+
 fetch(`https://kea-alt-del.dk/t7/api/products/${productId}`)
     .then(response => response.json())
     .then(data => {
+
         productContainer.innerHTML = `
         <section class="product-grid">
     <div>

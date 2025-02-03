@@ -1,13 +1,23 @@
-let ListContainer = document.querySelector(".product_list_container");
-fetch(`https://kea-alt-del.dk/t7/api/products/`)
-    .then(response => response.json())
-    .then((data) => showList(data));
 
-    function showList(products){
-        console.log(products);
-        let markup = "";
-        products.map(product => { markup +=
-            `<article class="product_container">
+const mycategory = new URLSearchParams(window.location.search).get("category");
+console.log("produktliste loader... med category", mycategory)
+
+const ListContainer = document.querySelector(".product_list_container");
+const overskrift = document.querySelector("h1")
+
+overskrift.innerHTML = mycategory;
+
+fetch(`https://kea-alt-del.dk/t7/api/products?category=${mycategory}`)
+  .then((response) => response.json())
+  .then(showProducts);
+
+function showProducts(data) {
+  
+  console.log(data);
+  markup = data
+    .map(
+      (product) => `
+    <article class="product_container">
             <div><h3 class="productdisplayname">${product.productdisplayname}</h3></div>
             <div>
               <img
@@ -24,10 +34,24 @@ fetch(`https://kea-alt-del.dk/t7/api/products/`)
               <p class="price">DKK ${product.price},-</p>
             </div>
             <div class="button">
-              <a href="produkt.html">Read More</a>
+              <a href="produkt.html?id=${product.id}">Read More</a>
             </div>
-          </article>` 
-        }).join("");
-        console.log(markup);
-        ListContainer.innerHTML = markup;
-}  
+          </article>
+          `
+    )
+    .join("");
+
+    console.log(markup);
+
+  ListContainer.innerHTML = markup;
+}
+
+
+// // Få overskriften til at ændre sig baseret på kategori
+// const queryString = window.location.search;
+// const urlParams = new URLSearchParams(queryString);
+// const category = urlParams.get("category");
+
+// document.querySelector("h1").textContent = category;
+
+// console.log("category:", category);
