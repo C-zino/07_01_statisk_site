@@ -341,26 +341,44 @@ margin-bottom: 5px;
   text-decoration: none;
 }
 
-
-.grid1-1-1-1{
-  display: grid;
-  grid-template-columns: auto auto auto;
-  width: 130px;
-  margin-top: -30px;
-}
-
 .productimg{
   max-width: 400px;
   border: 1px solid black;
   border-radius: 5px;
+  margin-top: -30px;
+}
+
+.grid1-1-1-1{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  width: 150px;
+  margin-top: -30px;
+}
+
+.grid1-1-1-1-category{
+  display: grid;
+  grid-template-columns: auto auto;
+  width: 160px;
+  margin-top: -30px;
+
 }
 
 .grid1-1-1-1-invetory{
   display: grid;
-  grid-template-columns: auto auto auto;
-  width: 250px;
+  grid-template-columns: auto auto;
+  width: 220px;
   margin-top: -30px;
 }
+
+.grid1-1-1-1-season{
+  display: grid;
+  grid-template-columns: auto auto;
+  width: 120px;
+  margin-top: -10px;
+}
+
+
+
 
 /* Productsite */
 
