@@ -211,37 +211,34 @@ margin-bottom: 5px;
 
 
 /* SOLD OUT */
-
 .sold-out {
   visibility: hidden;
   position: absolute;
-  top: 5%;
-  left: 5%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   background-color: rgba(0, 0, 0, 0.73);
   color: white;
-  font-size: 16px;
+  font-size: 22px;
   font-weight: bold;
-  padding: 2px 5px;
+  padding: 5px 10px;
   border-radius: 5px;
+  z-index: 10;
+  white-space: nowrap;
 }
 
-.sold-out-price::before {
-  visibility: hidden;
-  content: "SOLD OUT"; 
-  display: block; 
-  font-weight: bold;
-  margin-bottom: 5px; 
+.product_container:has(.IsSoldOut) .price {
+  color: #999;
+  visibility: visible;
 }
 
-.product_container:has(.sold-out-price) .button {
-  visibility: hidden;
-  pointer-events: none; 
-  cursor: not-allowed; 
-  background-color: rgb(144, 144, 144); 
-
+.product_container:has(.IsSoldOut) .button {
+  background-color: #757575;
+  pointer-events: none;
+  cursor: not-allowed;
 }
 
-.IsSoldOut{
+.IsSoldOut {
   visibility: visible;
 }
 
@@ -252,17 +249,14 @@ margin-bottom: 5px;
 .product_container:has(.discount-price) .price {
   text-decoration: line-through;
   color: rgb(146, 146, 146);
-  visibility: hidden;
 }
 
 .product_container:has(.discount-price) .price::before {
   content: "Før ";
-  visibility: hidden;
 }
 
 .discount-price {
   font-weight: bold;
-  visibility: hidden;
 }
 
 .image-container {
@@ -285,7 +279,30 @@ margin-bottom: 5px;
   border-radius: 5px;
 }
 
-.IsOnSale{
+
+.discount-single {
+  position: absolute;
+  visibility: hidden;
+  top: -25px;
+  left: 25px;
+  background-color: red;
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.product-grid:has(.discount-price) .price {
+  text-decoration: line-through;
+  color: rgb(146, 146, 146);
+}
+
+.product-grid:has(.discount-price) .price::before {
+  content: "Før ";
+}
+
+.IsOnSale {
   visibility: visible;
 }
 
@@ -368,28 +385,28 @@ margin-bottom: 5px;
   grid-template-columns: auto auto auto;
   width: 200px;
   margin-top: -30px;
+
 }
 
 .grid1-1-1-1-category{
   display: grid;
-  grid-template-columns: auto auto;
-  width: 200px;
+  grid-template-columns: 1fr 3fr;
   margin-top: -30px;
-
+  gap: 5px;
 }
+
 
 .grid1-1-1-1-invetory{
   display: grid;
-  grid-template-columns: auto auto;
-  width: 220px;
+  grid-template-columns: 2fr 1.8fr;
   margin-top: -30px;
 }
 
 .grid1-1-1-1-season{
   display: grid;
-  grid-template-columns: auto auto;
-  width: 150px;
+  grid-template-columns: 1fr 4fr;
   margin-top: -10px;
+  gap: 5px;
 }
 
 

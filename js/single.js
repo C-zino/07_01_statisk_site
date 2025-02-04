@@ -9,10 +9,11 @@ fetch(`https://kea-alt-del.dk/t7/api/products/${productId}`)
 
         productContainer.innerHTML = `
         <section class="product-grid">
-    <div>
+    <div class="image-container">
         <img class="productimg"
           src="https://kea-alt-del.dk/t7/images/webp/640/${productId}.webp"
           alt="Billede af produkt"/>
+           <p class="discount-single ${data.discount && "IsOnSale"}">-${data.discount}%</p>
         </div>
         
     <div> 
@@ -27,7 +28,6 @@ fetch(`https://kea-alt-del.dk/t7/api/products/${productId}`)
 </div>
 
     <br>
-
     <div class="grid1-1-1-1-category">
     <p> <strong>Category: </strong></p> 
     <p>${data.category}</p></div>
@@ -42,7 +42,8 @@ fetch(`https://kea-alt-del.dk/t7/api/products/${productId}`)
     <p>${data.season}</p></div>
     <br>
 
-    <h3 class="price">DKK ${data.price},-</h3></div>
+ <p class="price ${data.discount ? "discount-price IsOnSale" : ""}">DKK ${data.price},-</p>
+    ${data.discount ? `<p class="discount-price IsOnSale">Nu DKK ${Math.round(data.price * (1 - data.discount / 100))},-</p>` : ""}
     
 <div class="grid1-1-produktsite">
     <label for="size">Size:</label>
