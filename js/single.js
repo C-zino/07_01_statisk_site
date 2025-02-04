@@ -15,7 +15,7 @@ fetch(`https://kea-alt-del.dk/t7/api/products/${productId}`)
           alt="Billede af produkt"/>
         </div>
         
-    <div>
+    <div> 
     <div>
     <h2 class="productdisplayname">${data.productdisplayname}</h2>
 </div>

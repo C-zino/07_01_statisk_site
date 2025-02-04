@@ -213,6 +213,7 @@ margin-bottom: 5px;
 /* SOLD OUT */
 
 .sold-out {
+  visibility: hidden;
   position: absolute;
   top: 5%;
   left: 5%;
@@ -225,6 +226,7 @@ margin-bottom: 5px;
 }
 
 .sold-out-price::before {
+  visibility: hidden;
   content: "SOLD OUT"; 
   display: block; 
   font-weight: bold;
@@ -232,10 +234,15 @@ margin-bottom: 5px;
 }
 
 .product_container:has(.sold-out-price) .button {
+  visibility: hidden;
   pointer-events: none; 
   cursor: not-allowed; 
   background-color: rgb(144, 144, 144); 
 
+}
+
+.IsSoldOut{
+  visibility: visible;
 }
 
 /* SOLD OUT */
@@ -245,14 +252,17 @@ margin-bottom: 5px;
 .product_container:has(.discount-price) .price {
   text-decoration: line-through;
   color: rgb(146, 146, 146);
+  visibility: hidden;
 }
 
 .product_container:has(.discount-price) .price::before {
   content: "Før ";
+  visibility: hidden;
 }
 
 .discount-price {
   font-weight: bold;
+  visibility: hidden;
 }
 
 .image-container {
@@ -264,6 +274,7 @@ margin-bottom: 5px;
 
 .discount {
   position: absolute;
+  visibility: hidden;
   top: 5%;
   left: 5%;
   background-color: red;
@@ -272,6 +283,10 @@ margin-bottom: 5px;
   font-weight: bold;
   padding: 2px 5px;
   border-radius: 5px;
+}
+
+.IsOnSale{
+  visibility: visible;
 }
 
 /* Discount */
@@ -351,14 +366,14 @@ margin-bottom: 5px;
 .grid1-1-1-1{
   display: grid;
   grid-template-columns: auto auto auto;
-  width: 150px;
+  width: 200px;
   margin-top: -30px;
 }
 
 .grid1-1-1-1-category{
   display: grid;
   grid-template-columns: auto auto;
-  width: 160px;
+  width: 200px;
   margin-top: -30px;
 
 }
@@ -373,7 +388,7 @@ margin-bottom: 5px;
 .grid1-1-1-1-season{
   display: grid;
   grid-template-columns: auto auto;
-  width: 120px;
+  width: 150px;
   margin-top: -10px;
 }
 
