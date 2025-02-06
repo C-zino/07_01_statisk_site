@@ -45,3 +45,54 @@ function showProducts(data) {
     console.log(markup);
   ListContainer.innerHTML = markup;
 }
+
+
+
+
+
+// FILTER 
+
+const filterSelect = document.querySelector("#filter");
+let originalData = []; // Store the original data
+
+// Modify your existing fetch chain to store the original data
+fetch(`https://kea-alt-del.dk/t7/api/products?category=${mycategory}`)
+  .then((response) => response.json())
+  .then((data) => {
+    originalData = data; // Store the original data
+    showProducts(data); // Show all products initially
+  });
+
+// Add event listener to the filter select
+filterSelect.addEventListener("change", function() {
+  let filteredData = [...originalData]; // Create a copy of the original data
+
+  switch(this.value) {
+    case "women":
+      filteredData = originalData.filter(product => 
+        product.gender.toLowerCase() === "women" || 
+        product.gender.toLowerCase() === "unisex"
+      );
+      break;
+    
+    case "men":
+      filteredData = originalData.filter(product => 
+        product.gender.toLowerCase() === "men" || 
+        product.gender.toLowerCase() === "unisex"
+      );
+      break;
+    
+    case "discount":
+      filteredData = originalData.filter(product => 
+        product.discount && !product.soldout
+      );
+      break;
+    
+    case "all":
+    default:
+      filteredData = [...originalData];
+      break;
+  }
+
+  showProducts(filteredData);
+});
